@@ -16,6 +16,7 @@ use App\Http\Controllers\LabPProcedimientosController;
 use App\Http\Controllers\LabPPruebasController;
 use App\Http\Controllers\LabPPruebasOpcionesController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,13 @@ use App\Http\Controllers\UserController;
 | que está asignado al grupo middleware "api". ¡Disfruta construyendo tu API!
 |
 */
+
+//login 
+Route::post('/login', [LoginController::class, 'login']);
+
+// tipo de documento
+Route::get('/api/tipo-identificacion', [ListaOpcionController::class, 'getTipoIdentificacion']);
+
 //Consulta
 Route::post('/laboratory-orders', [LaboratoryController::class, 'getLaboratoryOrders']);
 

@@ -16,6 +16,14 @@ class ListaOpcionController extends Controller
         return response()->json($opcionesHabilitadas);
     }
 
+    public function getTipoIdentificacion()
+    {
+        // Obtener las opciones donde la variable es 'tipo_identificacion'
+        $opciones = GenPListaOpcion::where('variable', 'tipo_identificacion')->habilitados()->get();
+
+        return response()->json($opciones);
+    }
+    
     // Almacenar una nueva opción en la base de datos
     public function store(Request $request)
     {
